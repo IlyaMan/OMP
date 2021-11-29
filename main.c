@@ -41,8 +41,6 @@ mat load_matrix(char* filename, int matrix_size) {
 void mat_del(mat x) { free(x[0]); free(x); }
 
 
-
-
 mat mat_mul(mat a, mat b, int n)
 {
     mat c = mat_new(n);
@@ -80,22 +78,22 @@ void mat_pivot(mat a, mat p, int n)
 
 void mat_LU(mat A, mat L, mat U, mat P, int n)
 {
-    double tim = omp_get_wtime();
+//    double tim = omp_get_wtime();
     mat_zero(L, n);
     mat_zero(U, n);
 //    printf("Zero calculated in %f.\n", omp_get_wtime() - tim);
 
-    tim = omp_get_wtime();
+//    tim = omp_get_wtime();
     mat_pivot(A, P, n);
 //    printf("Pivot calculated in %f.\n", omp_get_wtime() - tim);
 
-    tim = omp_get_wtime();
+//    tim = omp_get_wtime();
     mat Aprime = mat_mul(P, A, n);
 //    printf("Mat Mul calculated in %f.\n", omp_get_wtime() - tim);
 
     int i, j;
 
-    tim = omp_get_wtime();
+//    tim = omp_get_wtime();
 
     for (i = 0; i < n; i++){
         for (j = 0; j < n; j++){
@@ -125,7 +123,7 @@ void mat_LU(mat A, mat L, mat U, mat P, int n)
 
 void calculate_det(int p, mat A, int n){
 //    printf("Initialized \n");
-    double tim = omp_get_wtime();
+//    double tim = omp_get_wtime();
     mat L, P, U;
 
     L = mat_new(n);
@@ -136,8 +134,8 @@ void calculate_det(int p, mat A, int n){
 
     omp_set_num_threads(p);
     omp_set_nested(1);
-    tim = omp_get_wtime();
-    double tim1 = tim;
+//    tim = omp_get_wtime();
+//    double tim1 = tim;
     mat_LU(A, L, U, P, n);
 //    printf("LU calculated in %f. \n", omp_get_wtime() - tim1);
 
@@ -146,7 +144,7 @@ void calculate_det(int p, mat A, int n){
     double U_diag = 1;
 
     int i;
-    tim1 = omp_get_wtime();
+//    tim1 = omp_get_wtime();
 #pragma omp parallel for private(i) reduction(*:L_diag) reduction(*:U_diag) reduction(+:swaps)
     for (i = 0; i < n; i++){
         if (P[i][i] == 0) {
