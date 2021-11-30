@@ -71,10 +71,10 @@ L_diag и U_diag с помощью операций умножения и пер
 
 
 #### График времени работы алгорима в секундах на матрице 200x200 по [таблице](#200-time-table)
-![5000x chart](report_images/200x_time.png)
+![200x chart](report_images/200x_time.png)
 
 #### График ускорения алгорима на матрице 200x200 по [таблице](#200-acceleration-table)
-![5000x acceleration chart](report_images/200x_acceleration.png)
+![200x acceleration chart](report_images/200x_acceleration.png)
 
 #### График времени работы алгорима в секундах на матрице 5000x5000 по [таблице](#5000-time-table)
 ![5000x time chart](report_images/5000x_time.png)
