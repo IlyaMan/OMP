@@ -123,7 +123,7 @@ void mat_LU(mat A, mat L, mat U, mat P, int n)
 
 void calculate_det(int p, mat A, int n){
 //    printf("Initialized \n");
-//    double tim = omp_get_wtime();
+    double tim = omp_get_wtime();
     mat L, P, U;
 
     L = mat_new(n);

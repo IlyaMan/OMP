@@ -198,7 +198,8 @@ void calculate_det(int p, mat A, int n)
 
     omp_set_num_threads(p);
     omp_set_nested(1);
-
+    
+    double tim = omp_get_wtime();
     mat_LU(A, L, U, P, n);
 
     int swaps = 0;
