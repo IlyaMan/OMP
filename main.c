@@ -57,7 +57,7 @@ void mat_pivot(mat a, mat p, int n)
 {
 #pragma omp parallel for shared(p)
     for (int i = 0; i < n; i++) for (int j = 0; j < n; j++) { p[i][j] = (i == j); }
-#pragma omp parallel for shared(a,p)
+//#pragma omp parallel for shared(a,p)
     for (int i = 0; i < n; i++) {
         int max_j = i;
         for (int j = i; j < n; j++) {
